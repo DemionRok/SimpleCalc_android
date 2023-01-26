@@ -6,17 +6,10 @@ import java.util.*
 class ReversePolishNotation() {
 
     private var stack = Stack<String>()
-    var output = ""
-
+    private var opBot = ""
+    private var operand = ""
+    var output = listOf<String>()
     fun transform(s:String) {
-       /* val pattern = Pattern.compile("([0-9]+)|(\\+|\\-|\\*|\\/)")
-        val matcher = pattern.matcher(s)*/
-        //var rpnArray:Array<Char> = arrayOf()
-        //s.split("\\+")
-       /* var out = listOf<Float>()
-        for (i in s) {
-            out = listOf(s[i.toInt()].toFloat())
-        }*/
 
         for (element in s) {
             when (element) {
@@ -25,22 +18,27 @@ class ReversePolishNotation() {
                 '*' -> getOperation(element, 2)
                 '/' -> getOperation(element, 2)
                 '(' -> stack.push(element.toString())
-                ')' -> gotParen()
-                else -> output += element
+                ')' -> getBracket()
+                else -> {
+                    operand += element
+                    continue
+                }
             }
         }
+            //output += operand
+
         while (!stack.isEmpty()) {
-            output += stack.pop().toFloat()
+            output += stack.pop()
         }
     }
 
-    private fun gotParen() {
+    private fun getBracket() {
         while (!stack.isEmpty()) {
             val element = stack.pop()
             if (element == "(") {
                 break
             } else {
-                output += element.toFloat()
+                output += element
             }
         }
     }
@@ -52,12 +50,11 @@ class ReversePolishNotation() {
                 stack.push(opTop)
                 break
             } else {
-                var oldPriority = -1
-                oldPriority = if (opTop == "+" || opTop == "-") 1 else 2
+                var oldPriority: Int = if (opTop == "+" || opTop == "-") 1 else 2
                 if (oldPriority < priority) {
                     stack.push(opTop)
                     break
-                } else output += opTop.toFloat()
+                } else output += opTop
             }
         }
         stack.push(currentOp.toString())

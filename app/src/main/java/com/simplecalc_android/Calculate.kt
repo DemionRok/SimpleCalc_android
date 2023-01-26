@@ -4,8 +4,7 @@ import java.util.*
 
 class Calculate {
     private var operand = ""
-    //private var input: String = ""
-    private var input = ""
+    private var input = listOf<String>()
     private var stack = Stack<Float>()
     private var result = 0f
 
@@ -13,12 +12,10 @@ class Calculate {
         var rpn = ReversePolishNotation()
         rpn.transform(v)
         input = rpn.output
-        var i = 0
-        val size = input.length
-        //var rpnInput = listOf<String>()
-        for (i in 0 until size) {
-            var ch = input[i]
-            if (ch.toString() in "0".."999") {
+
+        for (element in input) {
+            var ch = element
+            if (ch in "0".."9") {
                 operand += ch
                 stack.push(operand.toFloat())
                 operand = ""
@@ -26,10 +23,10 @@ class Calculate {
                 var num1 = stack.pop()
                 var num2 = stack.pop()
                 var result = when (ch) {
-                    '+' -> num2 + num1
-                    '-' -> num2 - num1
-                    '*' -> num2 * num1
-                    '/' -> num2 / num1
+                    "+" -> num2 + num1
+                    "-" -> num2 - num1
+                    "*" -> num2 * num1
+                    "/" -> num2 / num1
                     else -> 0
                 }
                 stack.push(result.toFloat())
