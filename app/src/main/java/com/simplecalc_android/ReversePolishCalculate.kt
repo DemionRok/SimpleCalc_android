@@ -8,9 +8,8 @@ class ReversePolishCalculate {
     var output = listOf<String>()
 
     fun doReverse(s: String) {
-
         for (element in s) {
-            if (element.isDigit()) {
+            if (element.isDigit() || element == '.') {
                 operand += element
                 continue
             } else {

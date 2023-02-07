@@ -12,7 +12,6 @@ class Calculate {
         var rpn = ReversePolishCalculate()
         rpn.doReverse(v)
         input = rpn.output
-
         for (element in input) {
             var ch = element
             if (ch in "0".."9") {
