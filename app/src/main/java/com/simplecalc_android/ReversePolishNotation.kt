@@ -6,29 +6,39 @@ import java.util.*
 class ReversePolishNotation() {
 
     private var stack = Stack<String>()
-    private var opBot = ""
     private var operand = ""
+    private var operator = ""
     var output = listOf<String>()
+
     fun transform(s:String) {
 
         for (element in s) {
-            when (element) {
+            if (element.isDigit()) {
+                operand += element
+                continue
+            }
+                when(element) {
                 '+' -> getOperation(element, 1)
                 '-' -> getOperation(element, 1)
                 '*' -> getOperation(element, 2)
                 '/' -> getOperation(element, 2)
                 '(' -> stack.push(element.toString())
                 ')' -> getBracket()
-                else -> {
-                    operand += element
-                    continue
-                }
+//                else -> {
+//                    output += operand
+//                    operand = ""
+//                }
             }
+            /*output += operand
+            operand = ""*/
         }
             //output += operand
-
         while (!stack.isEmpty()) {
             output += stack.pop()
+            if (operand.isNotEmpty()){
+                output += operand
+                operand = ""
+            }
         }
     }
 
@@ -51,10 +61,12 @@ class ReversePolishNotation() {
                 break
             } else {
                 var oldPriority: Int = if (opTop == "+" || opTop == "-") 1 else 2
-                if (oldPriority < priority) {
+                if (priority > oldPriority) {
                     stack.push(opTop)
                     break
-                } else output += opTop
+                } else {
+                    output += opTop
+                }
             }
         }
         stack.push(currentOp.toString())

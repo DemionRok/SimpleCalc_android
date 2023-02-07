@@ -73,6 +73,7 @@ class MainActivity : AppCompatActivity() {
 
         button_equals.setOnClickListener {
             showResult()
+            //ReversePolishCalculate().doCalc()
         }
     }
 

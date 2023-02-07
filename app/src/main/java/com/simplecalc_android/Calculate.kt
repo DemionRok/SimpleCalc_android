@@ -9,8 +9,8 @@ class Calculate {
     private var result = 0f
 
     fun doCalc(v: String): Float {
-        var rpn = ReversePolishNotation()
-        rpn.transform(v)
+        var rpn = ReversePolishCalculate()
+        rpn.doReverse(v)
         input = rpn.output
 
         for (element in input) {
@@ -32,7 +32,7 @@ class Calculate {
                 stack.push(result.toFloat())
             }
         }
-       result = stack.pop()
+        result = stack.pop()
         return result
     }
 }
