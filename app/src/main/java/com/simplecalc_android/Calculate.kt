@@ -1,5 +1,6 @@
 package com.simplecalc_android
 
+import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 class Calculate {

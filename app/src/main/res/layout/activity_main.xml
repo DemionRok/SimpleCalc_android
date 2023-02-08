@@ -41,37 +41,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:stretchColumns="*">
+
         <TableRow>
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_brackets"
-                style="@style/Button_Style"
-                android:layout_width="wrap_content"
-                android:layout_height="90dp"
-                android:text="( )" />
-
-
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_percent"
+                android:id="@+id/button_clear"
                 style="@style/Button_Style"
                 android:layout_width="wrap_content"
+                android:layout_weight="1"
                 android:layout_height="90dp"
-                android:text="@string/button_percent" />
+                android:text="@string/buttonC" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_delete"
                 style="@style/Button_Style"
                 android:layout_width="wrap_content"
+                android:layout_weight="1"
                 android:layout_height="90dp"
                 android:text="@string/button_delete" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_addition"
+                android:id="@+id/button_division"
                 style="@style/Button_Style"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 android:background="@color/orange"
-                android:text="@string/button_add"
+                android:text="@string/button_divide"
                 android:textColor="#5D4037" />
 
         </TableRow>
@@ -100,12 +95,12 @@
                 android:text="@string/button9" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_division"
+                android:id="@+id/button_multiply"
                 style="@style/Button_Style"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 android:background="@color/orange"
-                android:text="@string/button_divide"
+                android:text="@string/button_multiply"
                 android:textColor="#5D4037" />
 
         </TableRow>
@@ -134,12 +129,12 @@
                 android:text="@string/button6" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_multiply"
+                android:id="@+id/button_subtraction"
                 style="@style/Button_Style"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 android:background="@color/orange"
-                android:text="@string/button_multiply"
+                android:text="@string/button_minus"
                 android:textColor="#5D4037" />
 
         </TableRow>
@@ -168,12 +163,12 @@
                 android:text="@string/button3" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_subtraction"
+                android:id="@+id/button_addition"
                 style="@style/Button_Style"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 android:background="@color/orange"
-                android:text="@string/button_minus"
+                android:text="@string/button_add"
                 android:textColor="#5D4037" />
 
         </TableRow>
@@ -195,14 +190,11 @@
                 android:text="@string/buttonDot" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_clear"
+                android:id="@+id/button_brackets"
                 style="@style/Button_Style"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
-                android:text="@string/buttonC" />
-
-
-
+                android:text="( )" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_equals"
@@ -210,19 +202,10 @@
                 android:layout_width="0dp"
                 android:layout_height="90dp"
                 android:layout_weight="1"
-                android:background="@color/blue"
+                android:background="@color/orange"
                 android:text="@string/button_equals"
                 android:textColor="#5D4037" />
 
         </TableRow>
-
-        <TableRow>
-
-
-
-
-
-        </TableRow>
-
     </TableLayout>
 </LinearLayout>
