@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.DecimalFormat
+import kotlin.math.sqrt
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,10 +71,15 @@ class MainActivity : AppCompatActivity() {
         button_addition.setOnClickListener {
             input.text = addToInputText("+")
         }
-
+        button_brackets.setOnClickListener {
+            if (input.text.isEmpty()) {
+                input.text = addToInputText("(")
+            } else {
+                input.text = addToInputText(")")
+            }
+        }
         button_equals.setOnClickListener {
             showResult()
-            //ReversePolishCalculate().doCalc()
         }
     }
 
@@ -107,3 +113,4 @@ class MainActivity : AppCompatActivity() {
         return str?.replaceFirst(".$".toRegex(), "")
     }
 }
+

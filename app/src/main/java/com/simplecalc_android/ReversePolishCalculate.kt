@@ -18,6 +18,8 @@ class ReversePolishCalculate {
                     '*' -> getPriority(element, 2)
                     '-' -> getPriority(element, 1)
                     '/' -> getPriority(element, 2)
+                    '(' -> stack.push(element.toString())
+                    ')' -> getBracket()
                 }
             }
             if (operand.isNotEmpty()) {
@@ -34,19 +36,39 @@ class ReversePolishCalculate {
         }
     }
 
-    private fun getPriority(currOp: Char, priority: Int) {
+    private fun getBracket() {
         while (!stack.isEmpty()) {
-            val opTop = stack.pop()
-            var oldPriority = if (opTop == "+" || opTop == "-") 1 else 2
-            if (priority > oldPriority) {
-                stack.push(opTop)
+            val element = stack.pop()
+            if (element == "(") {
                 break
             } else {
                 if (operand.isNotEmpty()) {
                     output += operand
                     operand = ""
                 }
-                output += opTop.toString()
+                output += element
+            }
+        }
+    }
+
+    private fun getPriority(currOp: Char, priority: Int) {
+        while (!stack.isEmpty()) {
+            val opTop = stack.pop()
+            if (opTop == "(") {
+                stack.push(opTop)
+                break
+            } else {
+                var oldPriority = if (opTop == "+" || opTop == "-") 1 else 2
+                if (priority > oldPriority) {
+                    stack.push(opTop)
+                    break
+                } else {
+                    if (operand.isNotEmpty()) {
+                        output += operand
+                        operand = ""
+                    }
+                    output += opTop.toString()
+                }
             }
         }
         stack.push(currOp.toString())

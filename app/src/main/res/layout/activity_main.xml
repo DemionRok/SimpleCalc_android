@@ -43,11 +43,11 @@
         android:stretchColumns="*">
         <TableRow>
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_sqrt"
+                android:id="@+id/button_brackets"
                 style="@style/Button_Style"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
-                android:text="@string/button_sqrt" />
+                android:text="( )" />
 
 
 
