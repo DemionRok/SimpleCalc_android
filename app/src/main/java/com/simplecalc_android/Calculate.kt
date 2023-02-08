@@ -1,6 +1,5 @@
 package com.simplecalc_android
 
-import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 class Calculate {
@@ -10,7 +9,7 @@ class Calculate {
     private var result = 0f
 
     fun doCalc(v: String): Float {
-        var rpn = ReversePolishCalculate()
+        var rpn = ReversePolishNotation()
         rpn.doReverse(v)
         input = rpn.output
         for (element in input) {
