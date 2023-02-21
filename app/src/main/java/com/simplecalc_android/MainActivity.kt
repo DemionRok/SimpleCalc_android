@@ -20,12 +20,6 @@ class MainActivity : AppCompatActivity() {
         button_delete.setOnClickListener {
             input.text = removeLastChar(input.text.toString());
         }
-        /* button_bracket_left.setOnClickListener {
-             input.text = addToInputText("(")
-         }
-         button_bracket_right.setOnClickListener {
-             input.text = addToInputText(")")
-         }*/
         button_0.setOnClickListener {
             input.text = addToInputText("0")
         }

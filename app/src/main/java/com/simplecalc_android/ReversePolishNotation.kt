@@ -5,7 +5,7 @@ import java.util.*
 class ReversePolishNotation {
     private var stack = Stack<String>()
     private var operand = ""
-    var output = listOf<String>()
+    var output: Array<String> = arrayOf()
 
     fun doReverse(s: String) {
         for (element in s) {

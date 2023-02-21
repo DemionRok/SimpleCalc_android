@@ -1,10 +1,11 @@
 package com.simplecalc_android
 
+import androidx.core.text.isDigitsOnly
 import java.util.*
 
 class Calculate {
     private var operand = ""
-    private var input = listOf<String>()
+    private var input:Array<String> = arrayOf()
     private var stack = Stack<Float>()
     private var result = 0f
 
@@ -13,15 +14,12 @@ class Calculate {
         rpn.doReverse(v)
         input = rpn.output
         for (element in input) {
-            var ch = element
-            if (ch in "0".."9") {
-                operand += ch
-                stack.push(operand.toFloat())
-                operand = ""
+            if (element.isDigitsOnly()) {
+                stack.push(element.toFloat())
             } else {
                 var num1 = stack.pop()
                 var num2 = stack.pop()
-                var result = when (ch) {
+                var result = when (element) {
                     "+" -> num2 + num1
                     "-" -> num2 - num1
                     "*" -> num2 * num1
